@@ -11,7 +11,7 @@ const app = express()
 // Middlewares
 app.use(express.json())
 app.use(router)
-app.use(cors({ origin: "*" }))
+app.use(cors())
 
 app.get("/", (req, res) => {
     res.send({
