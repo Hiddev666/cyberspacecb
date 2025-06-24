@@ -13,6 +13,12 @@ app.use(express.json())
 app.use(router)
 app.use(cors({ origin: "*" }))
 
+app.get("/", (req, res) => {
+    res.send({
+        message: "CYBER SPACE CB OFFICIAL BACKEND SYSTEM."
+    })
+})
+
 app.listen(PORT, () => {
     console.log("[SERVER] RUNNING ON PORT", PORT)
 })
