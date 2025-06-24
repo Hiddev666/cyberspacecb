@@ -38,7 +38,7 @@ messageRouter.post("/", async (req, res) => {
         let encrypted = CryptoJS.AES.encrypt(
             message,
             process.env.CRYPTO_KEY
-        )
+        ).toString()
 
         const newMessage = await db.message.create({
             data: {
