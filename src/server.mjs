@@ -9,9 +9,11 @@ const PORT = process.env.SERVER_PORT
 const app = express()
 
 // Middlewares
+app.use(cors({
+    origin: '*', // atau '*'
+}))
 app.use(express.json())
 app.use(router)
-app.use(cors())
 
 app.get("/", (req, res) => {
     res.send({
