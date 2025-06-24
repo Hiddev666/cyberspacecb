@@ -1,5 +1,7 @@
 import { Router } from "express"
 import db from "../lib/db.mjs"
+import CryptoJS from "crypto-js"
+import dotenv from "dotenv"
 
 const messageRouter = Router()
 
@@ -33,10 +35,14 @@ messageRouter.get("/", async (req, res) => {
 messageRouter.post("/", async (req, res) => {
     try {
         const { message, user_id } = req.body
+        let encrypted = CryptoJS.AES.encrypt(
+            message,
+            process.env.CRYPTO_KEY
+        )
 
         const newMessage = await db.message.create({
             data: {
-                message,
+                message: encrypted,
                 user_id
             }
         })
