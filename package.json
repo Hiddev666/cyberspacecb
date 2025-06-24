@@ -4,6 +4,8 @@
   "main": "src/server.mjs",
   "scripts": {
     "dev": "nodemon src/server.mjs",
+    "build": "prisma generate",
+    "start": "node src/server.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
